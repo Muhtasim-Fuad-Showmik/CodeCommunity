@@ -1,11 +1,27 @@
 import { ClerkProvider } from "@clerk/nextjs";
+import { Jost, Onest } from "next/font/google";
 import type { Metadata } from "next";
 import "./globals.css";
 import React from "react";
 
+const jost = Jost({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-jost",
+});
+const onest = Onest({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-onest",
+});
+
 export const metadata: Metadata = {
   title: "Code Community",
-  description: "Get help in tech",
+  description:
+    "A community-driven platform for keeping track of programming questions/problems and their respective answers/solutions, with the goal of sharing knowledge and cutting down time spent on already solved known issues.",
+  icons: {
+    icon: "/assets/images/code-community-logo.png",
+  },
 };
 
 export default function RootLayout({
@@ -14,9 +30,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <ClerkProvider>
+    <ClerkProvider
+      appearance={{
+        elements: {
+          formButtonPrimary: "primary-gradient",
+          footerActionLink: "primary-text-gradient hover:text-primary-500",
+        },
+      }}
+    >
       <html lang="en">
-        <body>{children}</body>
+        <body className={`${jost.variable} ${onest.variable}`}>{children}</body>
       </html>
     </ClerkProvider>
   );
