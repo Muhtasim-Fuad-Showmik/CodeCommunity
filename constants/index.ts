@@ -18,12 +18,12 @@ export const sidebarLinks: SidebarLink[] = [
     label: "Community",
   },
   {
-    imgURL: "/assets/icons/star.svg",
+    imgURL: "/assets/icons/collection.svg",
     route: "/collection",
     label: "Collections",
   },
   {
-    imgURL: "/assets/icons/suitcase.svg",
+    imgURL: "/assets/icons/tie.svg",
     route: "/jobs",
     label: "Find Jobs",
   },
